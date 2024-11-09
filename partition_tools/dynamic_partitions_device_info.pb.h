@@ -47,7 +47,7 @@ struct TableStruct_dynamic_5fpartitions_5fdevice_5finfo_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -67,12 +67,16 @@ extern DynamicPartitionsDeviceInfoProto_GroupDefaultTypeInternal _DynamicPartiti
 class DynamicPartitionsDeviceInfoProto_Partition;
 class DynamicPartitionsDeviceInfoProto_PartitionDefaultTypeInternal;
 extern DynamicPartitionsDeviceInfoProto_PartitionDefaultTypeInternal _DynamicPartitionsDeviceInfoProto_Partition_default_instance_;
+class DynamicPartitionsDeviceInfoProto_SuperDevice;
+class DynamicPartitionsDeviceInfoProto_SuperDeviceDefaultTypeInternal;
+extern DynamicPartitionsDeviceInfoProto_SuperDeviceDefaultTypeInternal _DynamicPartitionsDeviceInfoProto_SuperDevice_default_instance_;
 }  // namespace android
 PROTOBUF_NAMESPACE_OPEN
 template<> ::android::DynamicPartitionsDeviceInfoProto* Arena::CreateMaybeMessage<::android::DynamicPartitionsDeviceInfoProto>(Arena*);
 template<> ::android::DynamicPartitionsDeviceInfoProto_BlockDevice* Arena::CreateMaybeMessage<::android::DynamicPartitionsDeviceInfoProto_BlockDevice>(Arena*);
 template<> ::android::DynamicPartitionsDeviceInfoProto_Group* Arena::CreateMaybeMessage<::android::DynamicPartitionsDeviceInfoProto_Group>(Arena*);
 template<> ::android::DynamicPartitionsDeviceInfoProto_Partition* Arena::CreateMaybeMessage<::android::DynamicPartitionsDeviceInfoProto_Partition>(Arena*);
+template<> ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* Arena::CreateMaybeMessage<::android::DynamicPartitionsDeviceInfoProto_SuperDevice>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace android {
 
@@ -193,6 +197,7 @@ class DynamicPartitionsDeviceInfoProto_Partition :
   enum : int {
     kNameFieldNumber = 1,
     kGroupNameFieldNumber = 2,
+    kFsTypeFieldNumber = 7,
     kSizeFieldNumber = 4,
     kFsSizeFieldNumber = 5,
     kFsUsedFieldNumber = 6,
@@ -219,6 +224,17 @@ class DynamicPartitionsDeviceInfoProto_Partition :
   std::string* mutable_group_name();
   std::string* release_group_name();
   void set_allocated_group_name(std::string* group_name);
+
+  // string fs_type = 7[json_name = "fs_type"];
+  void clear_fs_type();
+  const std::string& fs_type() const;
+  void set_fs_type(const std::string& value);
+  void set_fs_type(std::string&& value);
+  void set_fs_type(const char* value);
+  void set_fs_type(const char* value, size_t size);
+  std::string* mutable_fs_type();
+  std::string* release_fs_type();
+  void set_allocated_fs_type(std::string* fs_type);
 
   // uint64 size = 4;
   void clear_size();
@@ -247,6 +263,7 @@ class DynamicPartitionsDeviceInfoProto_Partition :
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr group_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fs_type_;
   ::PROTOBUF_NAMESPACE_ID::uint64 size_;
   ::PROTOBUF_NAMESPACE_ID::uint64 fs_size_;
   ::PROTOBUF_NAMESPACE_ID::uint64 fs_used_;
@@ -565,6 +582,157 @@ class DynamicPartitionsDeviceInfoProto_BlockDevice :
 };
 // -------------------------------------------------------------------
 
+class DynamicPartitionsDeviceInfoProto_SuperDevice :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:android.DynamicPartitionsDeviceInfoProto.SuperDevice) */ {
+ public:
+  DynamicPartitionsDeviceInfoProto_SuperDevice();
+  virtual ~DynamicPartitionsDeviceInfoProto_SuperDevice();
+
+  DynamicPartitionsDeviceInfoProto_SuperDevice(const DynamicPartitionsDeviceInfoProto_SuperDevice& from);
+  DynamicPartitionsDeviceInfoProto_SuperDevice(DynamicPartitionsDeviceInfoProto_SuperDevice&& from) noexcept
+    : DynamicPartitionsDeviceInfoProto_SuperDevice() {
+    *this = ::std::move(from);
+  }
+
+  inline DynamicPartitionsDeviceInfoProto_SuperDevice& operator=(const DynamicPartitionsDeviceInfoProto_SuperDevice& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DynamicPartitionsDeviceInfoProto_SuperDevice& operator=(DynamicPartitionsDeviceInfoProto_SuperDevice&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DynamicPartitionsDeviceInfoProto_SuperDevice& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DynamicPartitionsDeviceInfoProto_SuperDevice* internal_default_instance() {
+    return reinterpret_cast<const DynamicPartitionsDeviceInfoProto_SuperDevice*>(
+               &_DynamicPartitionsDeviceInfoProto_SuperDevice_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(DynamicPartitionsDeviceInfoProto_SuperDevice& a, DynamicPartitionsDeviceInfoProto_SuperDevice& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DynamicPartitionsDeviceInfoProto_SuperDevice* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DynamicPartitionsDeviceInfoProto_SuperDevice* New() const final {
+    return CreateMaybeMessage<DynamicPartitionsDeviceInfoProto_SuperDevice>(nullptr);
+  }
+
+  DynamicPartitionsDeviceInfoProto_SuperDevice* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DynamicPartitionsDeviceInfoProto_SuperDevice>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DynamicPartitionsDeviceInfoProto_SuperDevice& from);
+  void MergeFrom(const DynamicPartitionsDeviceInfoProto_SuperDevice& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DynamicPartitionsDeviceInfoProto_SuperDevice* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "android.DynamicPartitionsDeviceInfoProto.SuperDevice";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dynamic_5fpartitions_5fdevice_5finfo_2eproto);
+    return ::descriptor_table_dynamic_5fpartitions_5fdevice_5finfo_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kUsedSizeFieldNumber = 2,
+    kTotalSizeFieldNumber = 3,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+
+  // uint64 used_size = 2[json_name = "used_size"];
+  void clear_used_size();
+  ::PROTOBUF_NAMESPACE_ID::uint64 used_size() const;
+  void set_used_size(::PROTOBUF_NAMESPACE_ID::uint64 value);
+
+  // uint64 total_size = 3[json_name = "total_size"];
+  void clear_total_size();
+  ::PROTOBUF_NAMESPACE_ID::uint64 total_size() const;
+  void set_total_size(::PROTOBUF_NAMESPACE_ID::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:android.DynamicPartitionsDeviceInfoProto.SuperDevice)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 used_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 total_size_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dynamic_5fpartitions_5fdevice_5finfo_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DynamicPartitionsDeviceInfoProto :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:android.DynamicPartitionsDeviceInfoProto) */ {
  public:
@@ -607,7 +775,7 @@ class DynamicPartitionsDeviceInfoProto :
                &_DynamicPartitionsDeviceInfoProto_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(DynamicPartitionsDeviceInfoProto& a, DynamicPartitionsDeviceInfoProto& b) {
     a.Swap(&b);
@@ -678,6 +846,7 @@ class DynamicPartitionsDeviceInfoProto :
   typedef DynamicPartitionsDeviceInfoProto_Partition Partition;
   typedef DynamicPartitionsDeviceInfoProto_Group Group;
   typedef DynamicPartitionsDeviceInfoProto_BlockDevice BlockDevice;
+  typedef DynamicPartitionsDeviceInfoProto_SuperDevice SuperDevice;
 
   // accessors -------------------------------------------------------
 
@@ -685,6 +854,7 @@ class DynamicPartitionsDeviceInfoProto :
     kPartitionsFieldNumber = 3,
     kGroupsFieldNumber = 4,
     kBlockDevicesFieldNumber = 5,
+    kSuperDeviceFieldNumber = 6,
     kEnabledFieldNumber = 1,
     kRetrofitFieldNumber = 2,
   };
@@ -721,6 +891,14 @@ class DynamicPartitionsDeviceInfoProto :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::android::DynamicPartitionsDeviceInfoProto_BlockDevice >&
       block_devices() const;
 
+  // .android.DynamicPartitionsDeviceInfoProto.SuperDevice super_device = 6[json_name = "super_device"];
+  bool has_super_device() const;
+  void clear_super_device();
+  const ::android::DynamicPartitionsDeviceInfoProto_SuperDevice& super_device() const;
+  ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* release_super_device();
+  ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* mutable_super_device();
+  void set_allocated_super_device(::android::DynamicPartitionsDeviceInfoProto_SuperDevice* super_device);
+
   // bool enabled = 1;
   void clear_enabled();
   bool enabled() const;
@@ -739,6 +917,7 @@ class DynamicPartitionsDeviceInfoProto :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::android::DynamicPartitionsDeviceInfoProto_Partition > partitions_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::android::DynamicPartitionsDeviceInfoProto_Group > groups_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::android::DynamicPartitionsDeviceInfoProto_BlockDevice > block_devices_;
+  ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* super_device_;
   bool enabled_;
   bool retrofit_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -911,6 +1090,57 @@ inline void DynamicPartitionsDeviceInfoProto_Partition::set_fs_used(::PROTOBUF_N
   
   fs_used_ = value;
   // @@protoc_insertion_point(field_set:android.DynamicPartitionsDeviceInfoProto.Partition.fs_used)
+}
+
+// string fs_type = 7[json_name = "fs_type"];
+inline void DynamicPartitionsDeviceInfoProto_Partition::clear_fs_type() {
+  fs_type_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& DynamicPartitionsDeviceInfoProto_Partition::fs_type() const {
+  // @@protoc_insertion_point(field_get:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+  return fs_type_.GetNoArena();
+}
+inline void DynamicPartitionsDeviceInfoProto_Partition::set_fs_type(const std::string& value) {
+  
+  fs_type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+}
+inline void DynamicPartitionsDeviceInfoProto_Partition::set_fs_type(std::string&& value) {
+  
+  fs_type_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+}
+inline void DynamicPartitionsDeviceInfoProto_Partition::set_fs_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  fs_type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+}
+inline void DynamicPartitionsDeviceInfoProto_Partition::set_fs_type(const char* value, size_t size) {
+  
+  fs_type_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+}
+inline std::string* DynamicPartitionsDeviceInfoProto_Partition::mutable_fs_type() {
+  
+  // @@protoc_insertion_point(field_mutable:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+  return fs_type_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* DynamicPartitionsDeviceInfoProto_Partition::release_fs_type() {
+  // @@protoc_insertion_point(field_release:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
+  
+  return fs_type_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void DynamicPartitionsDeviceInfoProto_Partition::set_allocated_fs_type(std::string* fs_type) {
+  if (fs_type != nullptr) {
+    
+  } else {
+    
+  }
+  fs_type_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), fs_type);
+  // @@protoc_insertion_point(field_set_allocated:android.DynamicPartitionsDeviceInfoProto.Partition.fs_type)
 }
 
 // -------------------------------------------------------------------
@@ -1095,6 +1325,89 @@ inline void DynamicPartitionsDeviceInfoProto_BlockDevice::set_alignment_offset(:
 
 // -------------------------------------------------------------------
 
+// DynamicPartitionsDeviceInfoProto_SuperDevice
+
+// string name = 1;
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::clear_name() {
+  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& DynamicPartitionsDeviceInfoProto_SuperDevice::name() const {
+  // @@protoc_insertion_point(field_get:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+  return name_.GetNoArena();
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_name(const std::string& value) {
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_name(std::string&& value) {
+  
+  name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+}
+inline std::string* DynamicPartitionsDeviceInfoProto_SuperDevice::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+  return name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* DynamicPartitionsDeviceInfoProto_SuperDevice::release_name() {
+  // @@protoc_insertion_point(field_release:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+  
+  return name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:android.DynamicPartitionsDeviceInfoProto.SuperDevice.name)
+}
+
+// uint64 used_size = 2[json_name = "used_size"];
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::clear_used_size() {
+  used_size_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 DynamicPartitionsDeviceInfoProto_SuperDevice::used_size() const {
+  // @@protoc_insertion_point(field_get:android.DynamicPartitionsDeviceInfoProto.SuperDevice.used_size)
+  return used_size_;
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_used_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  used_size_ = value;
+  // @@protoc_insertion_point(field_set:android.DynamicPartitionsDeviceInfoProto.SuperDevice.used_size)
+}
+
+// uint64 total_size = 3[json_name = "total_size"];
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::clear_total_size() {
+  total_size_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 DynamicPartitionsDeviceInfoProto_SuperDevice::total_size() const {
+  // @@protoc_insertion_point(field_get:android.DynamicPartitionsDeviceInfoProto.SuperDevice.total_size)
+  return total_size_;
+}
+inline void DynamicPartitionsDeviceInfoProto_SuperDevice::set_total_size(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  total_size_ = value;
+  // @@protoc_insertion_point(field_set:android.DynamicPartitionsDeviceInfoProto.SuperDevice.total_size)
+}
+
+// -------------------------------------------------------------------
+
 // DynamicPartitionsDeviceInfoProto
 
 // bool enabled = 1;
@@ -1215,9 +1528,62 @@ DynamicPartitionsDeviceInfoProto::block_devices() const {
   return block_devices_;
 }
 
+// .android.DynamicPartitionsDeviceInfoProto.SuperDevice super_device = 6[json_name = "super_device"];
+inline bool DynamicPartitionsDeviceInfoProto::has_super_device() const {
+  return this != internal_default_instance() && super_device_ != nullptr;
+}
+inline void DynamicPartitionsDeviceInfoProto::clear_super_device() {
+  if (GetArenaNoVirtual() == nullptr && super_device_ != nullptr) {
+    delete super_device_;
+  }
+  super_device_ = nullptr;
+}
+inline const ::android::DynamicPartitionsDeviceInfoProto_SuperDevice& DynamicPartitionsDeviceInfoProto::super_device() const {
+  const ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* p = super_device_;
+  // @@protoc_insertion_point(field_get:android.DynamicPartitionsDeviceInfoProto.super_device)
+  return p != nullptr ? *p : *reinterpret_cast<const ::android::DynamicPartitionsDeviceInfoProto_SuperDevice*>(
+      &::android::_DynamicPartitionsDeviceInfoProto_SuperDevice_default_instance_);
+}
+inline ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* DynamicPartitionsDeviceInfoProto::release_super_device() {
+  // @@protoc_insertion_point(field_release:android.DynamicPartitionsDeviceInfoProto.super_device)
+  
+  ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* temp = super_device_;
+  super_device_ = nullptr;
+  return temp;
+}
+inline ::android::DynamicPartitionsDeviceInfoProto_SuperDevice* DynamicPartitionsDeviceInfoProto::mutable_super_device() {
+  
+  if (super_device_ == nullptr) {
+    auto* p = CreateMaybeMessage<::android::DynamicPartitionsDeviceInfoProto_SuperDevice>(GetArenaNoVirtual());
+    super_device_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:android.DynamicPartitionsDeviceInfoProto.super_device)
+  return super_device_;
+}
+inline void DynamicPartitionsDeviceInfoProto::set_allocated_super_device(::android::DynamicPartitionsDeviceInfoProto_SuperDevice* super_device) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete super_device_;
+  }
+  if (super_device) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      super_device = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, super_device, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  super_device_ = super_device;
+  // @@protoc_insertion_point(field_set_allocated:android.DynamicPartitionsDeviceInfoProto.super_device)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
