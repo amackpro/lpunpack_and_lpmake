@@ -53,6 +53,7 @@ cc_library_shared {
             shared_libs: [
                 "libcutils",
                 "libfs_mgr",
+		"libsnapshot",
             ],
         },
     },
